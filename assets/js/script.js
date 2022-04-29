@@ -1,3 +1,6 @@
+// Bootstrap does not have any global vars so we just npm i bootstrap just like Jquery but we will require it in this file
+require("bootstrap");
+
 $(document).ready(function() {
   function createEl(htmlString, attrs, ...children) {
     if (typeof htmlString !== "string") {
