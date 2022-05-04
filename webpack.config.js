@@ -5,10 +5,10 @@ const path = require('path');
 // to inport wwebpack properties and methods
 const webpack = require("webpack");
 // this import is to analize the bundles
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 
 // exports basic configuration for wbpack
-module.exports = {
+const config = {
     // where webpack looks to start buildinf the module
     // entry points 
     entry: {
@@ -22,13 +22,13 @@ module.exports = {
         // this file will br in the dist directory
         filename: '[name].bundle.js',
         // tells webpack where the files are going to go
-        path: __dirname + '/dist'
+        path: `${__dirname} + '/dist`
     },
 
     module: {
         rules: [
           {
-            test: /\.jpg$/,
+            test: /\.(png|jpe?g|gif)$/i,
             use: [
               {
                 loader: 'file-loader',
@@ -68,3 +68,4 @@ module.exports = {
     // this gets changed when we want our code to be minified to 'production'
     mode: 'development'
 };
+module.exports = config;
